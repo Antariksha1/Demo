@@ -26,6 +26,6 @@ public class DemoServlet extends HttpServlet {
   public void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws IOException {
     resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"World\" }");
+    resp.getWriter().println("{ \"name\": \"Everyone, I am Antariksh and I have deployed a sample java code in Google Cloud by using Github repository\" }");
   }
 }
