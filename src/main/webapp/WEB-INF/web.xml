@@ -1,18 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE web-app PUBLIC
- "-//Oracle Corporation//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+<servlet>
+<servlet-name>
+Calculate
+</servlet-name>
+<servlet-class>
+Calculate
+</servlet-class>
+</servlet>
 
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
-    <servlet>
-        <servlet-name>demo</servlet-name>
-        <servlet-class>myapp.DemoServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>demo</servlet-name>
-        <url-pattern>/demo</url-pattern>
-    </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+<servlet-mapping>
+<servlet-name>Calculate</servlet-name>
+<url-pattern>/add</url-pattern>
+</servlet-mapping>
+
+<welcome-file-list>
+       <welcome-file>Display1.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
