@@ -31,20 +31,20 @@ public class Calculate extends HttpServlet{
 		 switch (request.getParameter("button1")) {
 		case "+":
 			result=Integer.parseInt(s1)+Integer.parseInt(s2);
-			 pw.println(result);
+			// pw.println(result);
 			break;
 
 		case "-":
 			result=Integer.parseInt(s1)-Integer.parseInt(s2);
-			 pw.println(result);
+			 //pw.println(result);
 			break;
 		case "*":
 			result=Integer.parseInt(s1)*Integer.parseInt(s2);
-			 pw.println(result);
+			 //pw.println(result);
 			break;
 		case "/":
 			result=Integer.parseInt(s1)/Integer.parseInt(s2);
-			 pw.println(result);
+			// pw.println(result);
 			break;
 		default:
 			break;
