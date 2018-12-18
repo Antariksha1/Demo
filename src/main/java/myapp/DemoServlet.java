@@ -1,31 +1,68 @@
-/*
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package myapp;
-
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class DemoServlet extends HttpServlet {
-  @Override
-  public void doGet(HttpServletRequest req, HttpServletResponse resp)
-      throws IOException {
-    resp.setContentType("text/plain");
-    resp.getWriter().println("{ \"name\": \"Everyone, I am Antariksh and I have deployed a sample java code in Google Cloud by using Github repository\" }");
-  }
+public class Calculate extends HttpServlet{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7202605199917019105L;
+
+	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException
+	{
+		PrintWriter pw = null;
+		long result=0;
+		 try {
+			 pw=response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 response.setContentType("text/html");       
+		 String s1=request.getParameter("input1");
+		 String s2=request.getParameter("input2");
+		 
+		 switch (request.getParameter("button1")) {
+		case "+":
+			result=Integer.parseInt(s1)+Integer.parseInt(s2);
+			 pw.println(result);
+			break;
+
+		case "-":
+			result=Integer.parseInt(s1)-Integer.parseInt(s2);
+			 pw.println(result);
+			break;
+		case "*":
+			result=Integer.parseInt(s1)*Integer.parseInt(s2);
+			 pw.println(result);
+			break;
+		case "/":
+			result=Integer.parseInt(s1)/Integer.parseInt(s2);
+			 pw.println(result);
+			break;
+		default:
+			break;
+		}
+		 
+		  
+		 try
+		 {
+		 HttpSession session = request.getSession();
+		 String s=result+"";
+		 
+		 session.setAttribute("result",s );
+		 session.setAttribute("input1",s1 );
+		 session.setAttribute("input2",s2 );
+		 response.sendRedirect("Display1.jsp");  
+		 }catch(Exception e)
+		 { }
+		 
+    }
+
 }
